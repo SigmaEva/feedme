@@ -90,16 +90,16 @@ export default class Order extends React.Component {
     }
 
     resetState() {
+        //Todo
         this.setState(initialState);
     }
 
     submitForm(data) {
         var self= this;
-        var root = 'http://jsonplaceholder.typicode.com';
 
         $.ajax({
             type: 'POST',
-            url: root + '/posts',
+            url: 'https://echo.getpostman.com/post',
             data: data,
         }).done(function(data) {
             self.nextPage();

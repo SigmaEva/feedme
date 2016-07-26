@@ -42,15 +42,15 @@ export default class PizzaForm extends React.Component {
         );
       }
 
-      renderRadios() {
-          return (
-                <div>
-                  {Object.keys(this.state.radios).map(function(key) {
-                    return this.renderRadioWithLabel(key,this.state.radios[key]);
-                  }, this)}
-                </div>
-              );
-      }
+    renderRadios() {
+    return (
+        <div>
+            {Object.keys(this.state.radios).map(function(key) {
+                return this.renderRadioWithLabel(key,this.state.radios[key]);
+            }, this)}
+        </div>
+    );
+    }
 
     handleChange(event) {
         if(event.target.value == "cheesy"){
@@ -75,6 +75,7 @@ export default class PizzaForm extends React.Component {
     var extras = (this.state.extras).map(function(extra){
         return <li key={extra}>{extra}</li>;
     })
+    
     return (
       <div className="pizzapage">
           <div className="wrapper">
@@ -82,7 +83,6 @@ export default class PizzaForm extends React.Component {
         <form>
         <fieldset className="pizzasize">
             <label className="label">Choose a Pizza in cm</label>
-
             {this.renderRadios()}
         </fieldset>
 
@@ -120,16 +120,16 @@ export default class PizzaForm extends React.Component {
     )
   }
 
-  nextPage(e) {
+    nextPage(e) {
     e.preventDefault()
 
     var data = {
-      ingredients : this.state.extras,
-      cheeserand : this.state.cheeserand,
-      pizza: this.state.pizza
+        ingredients : this.state.extras,
+        cheeserand : this.state.cheeserand,
+        pizza: this.state.pizza
     }
 
-    this.props.saveValues(data)
-    this.props.nextPage()
-  }
+        this.props.saveValues(data)
+        this.props.nextPage()
+    }
 }
